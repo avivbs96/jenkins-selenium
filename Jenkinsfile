@@ -18,7 +18,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 // Run pytest
-                sh 'pytest -s -m negative tests/'
+                sh '/Users/Aviv/Desktop/python3-env/bin/pytest -s -m negative tests/'
             }
         }
     }
