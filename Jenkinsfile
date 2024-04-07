@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout your code from Git repository
-                git url: 'https://github.com/avivbs96/jenkins-selenium.git'
+                git branch: 'main', url: 'https://github.com/avivbs96/jenkins-selenium.git'
             }
         }
         stage('Install Dependencies') {
@@ -18,9 +18,6 @@ pipeline {
             steps {
                 // Run pytest
                 sh 'pytest -s -m negative tests/'
-                
-                // Clean up or post-processing steps
-                echo 'Pipeline execution completed'
             }
         }
     }
