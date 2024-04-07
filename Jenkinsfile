@@ -31,7 +31,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout your code from Git repository
-                git url: 'https://github.com/avivbs96/jenkins-selenium.git'
+                git branch: 'main', url: 'https://github.com/avivbs96/jenkins-selenium.git'
             }
         }
         stage('Install Dependencies') {
