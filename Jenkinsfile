@@ -42,7 +42,7 @@ pipeline {
         }
         stage('Run Tests') {
             steps {
-                // Run pytest
+                // Run pytest for negative tests
                 sh '/Users/Aviv/Desktop/python3-env/bin/pytest -s -m negative tests/'
             }
         }
@@ -50,6 +50,12 @@ pipeline {
             steps {
                 // Run login tests and generate HTML report
                 sh '/Users/Aviv/Desktop/python3-env/bin/pytest -m login tests/ --html=reports/report.html'
+            }
+            post {
+                always {
+                    // Archive HTML report
+                    archiveArtifacts artifacts: 'reports/report.html', allowEmptyArchive: true
+                }
             }
         }
     }
