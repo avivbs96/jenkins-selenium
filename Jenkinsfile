@@ -31,7 +31,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout your code from Git repository
-                git branch: 'main', url: 'https://github.com/avivbs96/jenkins-selenium.git'
+                git url: 'https://github.com/avivbs96/jenkins-selenium.git'
             }
         }
         stage('Install Dependencies') {
@@ -50,6 +50,12 @@ pipeline {
             steps {
                 // Generate HTML test report
                 sh '/Users/Aviv/Desktop/python3-env/bin/pytest --html=reports/report.html'
+            }
+        }
+        stage('Run Login Tests and Generate HTML Report') {
+            steps {
+                // Run login tests and generate HTML report
+                sh '/Users/Aviv/Desktop/python3-env/bin/pytest -m login --html=reports/report.html'
             }
         }
     }
