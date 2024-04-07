@@ -46,12 +46,6 @@ pipeline {
                 sh '/Users/Aviv/Desktop/python3-env/bin/pytest -s -m negative tests/'
             }
         }
-        stage('Generate HTML Report') {
-            steps {
-                // Generate HTML test report
-                sh '/Users/Aviv/Desktop/python3-env/bin/pytest --html=reports/report.html'
-            }
-        }
         stage('Run Login Tests and Generate HTML Report') {
             steps {
                 // Run login tests and generate HTML report
