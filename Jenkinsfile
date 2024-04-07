@@ -51,12 +51,6 @@ pipeline {
                 // Generate HTML test report
                 sh '/Users/Aviv/Desktop/python3-env/bin/pytest --html=reports/report.html'
             }
-            post {
-                always {
-                    // Publish HTML test report
-                    publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'reports', reportFiles: 'report.html'])
-                }
-            }
         }
     }
 }
