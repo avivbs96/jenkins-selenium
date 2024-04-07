@@ -50,6 +50,16 @@ pipeline {
             steps {
                 // Run login tests and generate HTML report
                 sh '/Users/Aviv/Desktop/python3-env/bin/pytest -m login --html=reports/report.html'
+
+                // Publish HTML report
+                publishHTML(target: [
+                    allowMissing: false,
+                    alwaysLinkToLastBuild: true,
+                    keepAll: true,
+                    reportDir: 'reports',
+                    reportFiles: 'report.html',
+                    reportName: 'HTML Test Report'
+                ])
             }
         }
     }
