@@ -10,10 +10,11 @@ pipeline {
         }
         stage('Install Dependencies') {
             steps {
-                // Install Python dependencies
-                sh 'pip install -r requirements.txt'
+            // Install Python dependencies
+                sh '/Users/Aviv/Desktop/python3-env/bin/pip install -r requirements.txt'
             }
         }
+
         stage('Run Tests') {
             steps {
                 // Run pytest
