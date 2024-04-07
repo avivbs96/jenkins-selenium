@@ -49,7 +49,7 @@ pipeline {
         stage('Run Login Tests and Generate HTML Report') {
             steps {
                 // Run login tests and generate HTML report
-                sh '/Users/Aviv/Desktop/python3-env/bin/pytest -m login --html=reports/report.html'
+                sh '/Users/Aviv/Desktop/python3-env/bin/pytest -m login tests/ --html=reports/report.html'
 
                 // Publish HTML report
                 publishHTML(target: [
