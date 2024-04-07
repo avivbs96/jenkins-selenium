@@ -18,13 +18,10 @@ pipeline {
             steps {
                 // Run pytest
                 sh 'pytest -s -m negative tests/'
+                
+                // Clean up or post-processing steps
+                echo 'Pipeline execution completed'
             }
-        }
-    }
-
-    post {
-        always {
-            // Clean up or post-processing steps
         }
     }
 }
